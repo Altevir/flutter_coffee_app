@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -30,255 +31,263 @@ class ProductDetailPage extends StatefulWidget {
 class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                clipBehavior: Clip.hardEdge,
-                width: context.screenWidth,
-                height: context.percentHeight(0.50),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/${widget.coffee.image}'),
-                    fit: BoxFit.fill,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                ),
-                child: Stack(
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.only(
+          left: 24,
+          top: Platform.isIOS ? 5 : 24,
+          right: 24,
+          bottom: 24,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              clipBehavior: Clip.hardEdge,
+              width: context.screenWidth,
+              height: context.percentHeight(0.50),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/${widget.coffee.image}'),
+                  fit: BoxFit.fill,
                   alignment: Alignment.bottomCenter,
-                  children: [
-                    SizedBox(
-                      width: context.screenWidth,
-                      height: 153,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
-                        ),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      widget.coffee.title.replaceAll(' ', '\n'),
-                                      style: context.textStyles.textSemiBold.copyWith(
-                                        fontSize: 20,
-                                        color: context.colors.white,
-                                        height: 1,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  SizedBox(
+                    width: context.screenWidth,
+                    height: 153,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40),
+                      ),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    widget.coffee.title.replaceAll(' ', '\n'),
+                                    style: context.textStyles.textSemiBold.copyWith(
+                                      fontSize: 20,
+                                      color: context.colors.white,
+                                      height: 1,
                                     ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      widget.coffee.subtitle,
-                                      style: context.textStyles.textSemiBold.copyWith(
-                                        fontSize: 14,
-                                        color: context.colors.white.withOpacity(0.6),
-                                        height: 1,
-                                      ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    widget.coffee.subtitle,
+                                    style: context.textStyles.textSemiBold.copyWith(
+                                      fontSize: 14,
+                                      color: context.colors.white.withOpacity(0.6),
+                                      height: 1,
                                     ),
-                                    const SizedBox(height: 8),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: context.colors.primary,
-                                          size: 16,
-                                        ),
-                                        const SizedBox(width: 12),
-                                        RichText(
-                                          text: TextSpan(
-                                              text: '4.8',
-                                              style: context.textStyles.textSemiBold.copyWith(
-                                                fontSize: 12,
-                                                color: context.colors.white,
-                                              ),
-                                              children: [
-                                                TextSpan(
-                                                  text: ' (2539)',
-                                                  style: context.textStyles.textSemiBold.copyWith(
-                                                    fontSize: 12,
-                                                    color: context.colors.white.withOpacity(0.6),
-                                                  ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: context.colors.primary,
+                                        size: 16,
+                                      ),
+                                      const SizedBox(width: 12),
+                                      RichText(
+                                        text: TextSpan(
+                                            text: '4.8',
+                                            style: context.textStyles.textSemiBold.copyWith(
+                                              fontSize: 12,
+                                              color: context.colors.white,
+                                            ),
+                                            children: [
+                                              TextSpan(
+                                                text: ' (2539)',
+                                                style: context.textStyles.textSemiBold.copyWith(
+                                                  fontSize: 12,
+                                                  color: context.colors.white.withOpacity(0.6),
                                                 ),
-                                              ]),
+                                              ),
+                                            ]),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: context.percentWidth(0.36),
+                                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                                    decoration: BoxDecoration(
+                                      color: context.colors.black.withOpacity(0.5),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/icons/ic_coffee_drop.svg',
+                                          fit: BoxFit.scaleDown,
+                                          width: 16,
+                                          height: 16,
+                                          colorFilter: ColorFilter.mode(
+                                            context.colors.primary,
+                                            BlendMode.srcIn,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Text(
+                                          '2x Chocolate',
+                                          style: context.textStyles.textRegular.copyWith(
+                                            fontSize: 12,
+                                            color: context.colors.white,
+                                            height: 1,
+                                          ),
                                         ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: context.percentWidth(0.36),
-                                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                                      decoration: BoxDecoration(
-                                        color: context.colors.black.withOpacity(0.5),
-                                        borderRadius: BorderRadius.circular(16),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/icons/ic_coffee_drop.svg',
-                                            fit: BoxFit.scaleDown,
-                                            width: 16,
-                                            height: 16,
-                                            colorFilter: ColorFilter.mode(
-                                              context.colors.primary,
-                                              BlendMode.srcIn,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 8),
-                                          Text(
-                                            '2x Chocolate',
-                                            style: context.textStyles.textRegular.copyWith(
-                                              fontSize: 12,
-                                              color: context.colors.white,
-                                              height: 1,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Container(
+                                    width: context.percentWidth(0.36),
+                                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                                    decoration: BoxDecoration(
+                                      color: context.colors.black.withOpacity(0.5),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
-                                    const SizedBox(height: 8),
-                                    Container(
-                                      width: context.percentWidth(0.36),
-                                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                                      decoration: BoxDecoration(
-                                        color: context.colors.black.withOpacity(0.5),
-                                        borderRadius: BorderRadius.circular(16),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/icons/ic_fire.svg',
-                                            fit: BoxFit.scaleDown,
-                                            width: 16,
-                                            height: 16,
-                                            colorFilter: ColorFilter.mode(
-                                              context.colors.primary,
-                                              BlendMode.srcIn,
-                                            ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/icons/ic_fire.svg',
+                                          fit: BoxFit.scaleDown,
+                                          width: 16,
+                                          height: 16,
+                                          colorFilter: ColorFilter.mode(
+                                            context.colors.primary,
+                                            BlendMode.srcIn,
                                           ),
-                                          const SizedBox(width: 8),
-                                          Text(
-                                            'Light Roasted',
-                                            style: context.textStyles.textRegular.copyWith(
-                                              fontSize: 12,
-                                              color: context.colors.white,
-                                              height: 1,
-                                            ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Text(
+                                          'Light Roasted',
+                                          style: context.textStyles.textRegular.copyWith(
+                                            fontSize: 12,
+                                            color: context.colors.white,
+                                            height: 1,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                )
-                              ],
-                            ),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 30),
-              Text(
-                'Description',
-                style: context.textStyles.textSemiBold.copyWith(
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 8),
-              RichText(
-                text: TextSpan(
-                  text: 'A cappuccino is a  coffee-based drink made primarily from espresso and milk... ',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 14,
-                    color: context.colors.black,
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'Read More',
-                      style: context.textStyles.textMedium.copyWith(
-                        fontSize: 14,
-                        color: context.colors.primary,
-                      ),
-                    )
-                  ],
-                ),
+                ],
               ),
-              const SizedBox(height: 32),
-              SelectorCoffeeSize(
-                onValueChanged: (value) {
-                  log(value.key);
-                },
+            ),
+            const SizedBox(height: 30),
+            Text(
+              'Description',
+              style: context.textStyles.textSemiBold.copyWith(
+                fontSize: 16,
               ),
-              SizedBox(height: context.percentHeight(0.04)),
-              Container(
-                padding: const EdgeInsets.only(top: 14, bottom: 14),
-                height: 52,
-                decoration: BoxDecoration(
-                  color: context.colors.secondary,
-                  borderRadius: BorderRadius.circular(40),
+            ),
+            const SizedBox(height: 8),
+            RichText(
+              text: TextSpan(
+                text: 'A cappuccino is a  coffee-based drink made primarily from espresso and milk... ',
+                style: context.textStyles.textMedium.copyWith(
+                  fontSize: 14,
+                  color: context.colors.black,
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FittedBox(
-                      child: Text(
-                        'Buy Now',
-                        style: context.textStyles.textRegular.copyWith(
-                          fontSize: 22,
-                          color: context.colors.white,
-                        ),
+                children: [
+                  TextSpan(
+                    text: 'Read More',
+                    style: context.textStyles.textMedium.copyWith(
+                      fontSize: 14,
+                      color: context.colors.primary,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
+            SelectorCoffeeSize(
+              onValueChanged: (value) {
+                log(value.key);
+              },
+            ),
+            SizedBox(height: context.percentHeight(0.04)),
+            Container(
+              padding: const EdgeInsets.only(top: 14, bottom: 14),
+              height: 52,
+              decoration: BoxDecoration(
+                color: context.colors.secondary,
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FittedBox(
+                    child: Text(
+                      'Buy Now',
+                      style: context.textStyles.textRegular.copyWith(
+                        fontSize: 22,
+                        color: context.colors.white,
                       ),
                     ),
-                    const SizedBox(width: 24),
-                    VerticalDivider(
-                      width: 1,
-                      color: context.colors.white,
-                      thickness: 1,
-                      indent: 5,
-                      endIndent: 5,
-                    ),
-                    const SizedBox(width: 24),
-                    FittedBox(
-                      child: Text(
-                        '\$ ${widget.coffee.price.toStringAsFixed(2)}',
-                        style: context.textStyles.textSemiBold.copyWith(
-                          fontSize: 22,
-                          color: context.colors.white,
-                        ),
+                  ),
+                  const SizedBox(width: 24),
+                  VerticalDivider(
+                    width: 1,
+                    color: context.colors.white,
+                    thickness: 1,
+                    indent: 5,
+                    endIndent: 5,
+                  ),
+                  const SizedBox(width: 24),
+                  FittedBox(
+                    child: Text(
+                      '\$ ${widget.coffee.price.toStringAsFixed(2)}',
+                      style: context.textStyles.textSemiBold.copyWith(
+                        fontSize: 22,
+                        color: context.colors.white,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
