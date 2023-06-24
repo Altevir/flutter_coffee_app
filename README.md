@@ -12,6 +12,11 @@ Packages utilizados
 ![coffee_android2](https://github.com/Altevir/flutter_neo_bank_app/assets/11803107/2400db7a-17e1-499c-9191-a2ea23be95bb)
 ![coffee_android3](https://github.com/Altevir/flutter_neo_bank_app/assets/11803107/d2b66019-47e5-4778-9fd5-c3ccfae6066a)
 
+### iOS
+![Simulator Screen Shot - iPhone 14 - 2023-06-24 at 13 12 54](https://github.com/Altevir/flutter_coffee_app/assets/11803107/a943b56a-b775-4d18-9528-54a3f7b9cb37)
+![Simulator Screen Shot - iPhone 14 - 2023-06-24 at 13 13 02](https://github.com/Altevir/flutter_coffee_app/assets/11803107/4d437aa9-939e-4a5f-bc3b-ad27a26d76c8)
+![Simulator Screen Shot - iPhone 14 - 2023-06-24 at 13 54 45](https://github.com/Altevir/flutter_coffee_app/assets/11803107/698fd06b-c6e5-44e2-b938-7cc08abfb1fd)
+
 Créditos do Design
 ## [Antonio Katsarov](https://www.linkedin.com/in/antonio-katsarov/) (Linkedin)
 Link do post original
