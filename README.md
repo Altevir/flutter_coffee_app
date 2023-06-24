@@ -1,16 +1,18 @@
-# flutter_coffee_app
+# Flutter Coffee App
+Esse protótipo foi compartilhado no Linkedin pelo UI/UX Designer Antonio Katsarov.
+Foi efetuado uma pequena mudança na tela de detalhes do produto, adicionei uma imagem junto a descrição de cada tamanho de café pra selecionar.
 
-A new Flutter project.
+Packages utilizados
+- google_fonts (font Poppins)
+- flutter_svg
 
-## Getting Started
+## Screenshots
+### Android
+![coffee_android1](https://github.com/Altevir/flutter_neo_bank_app/assets/11803107/4b41e152-53b0-454b-a0e2-34d7ab046fdd)
+![coffee_android2](https://github.com/Altevir/flutter_neo_bank_app/assets/11803107/2400db7a-17e1-499c-9191-a2ea23be95bb)
+![coffee_android3](https://github.com/Altevir/flutter_neo_bank_app/assets/11803107/d2b66019-47e5-4778-9fd5-c3ccfae6066a)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Créditos do Design
+## [Antonio Katsarov](https://www.linkedin.com/in/antonio-katsarov/) (Linkedin)
+Link do post original
+https://www.linkedin.com/feed/update/urn:li:activity:7043489089865560064/
